@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Blaka+Hollow&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Blaka+Hollow&family=Roboto:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Blaka+Hollow&family=Roboto:ital,wght@0,100;0,700;1,500&display=swap');
+body{
+background-color: #1c1622;
+background-image: url("../assets/img/fundoBody.jpeg");
+background-repeat: no-repeat;
+background-size: cover;
+margin: 0;
+}
+.texto{
+    color: black;
+    font-weight: 800;
+
+}
+.titulo {
+    color: #cb9b60;
+    font-size: 45px;
+    width: fit-content;
+    font-weight: 500;
+    font-family:'Blaka Hollow' ,Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    
+    
+}
+.navbar {
+    color: #cb9b60;
+    width: fit-content;
+    font-weight: 600;
+    font-family:Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    width: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    list-style: none;
+}
+.pagAtual {
+    font-weight: 800;
+}
+.container {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    display: flex;
+    justify-content: space-between;
+}
+.containerFooter {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    color: black;
+    
+    
+}
+.header {
+    background-color: #121212   ;
+    background-size: cover;
+    border-bottom: 3px solid black;
+    
+    
+}
+a{
+ text-decoration: none;  
+ color: unset; 
+ /* font-weight: 800 */
+}
+.cardHome{
+    width: 80vh;
+}
+.containerHome{
+    border: red solid 3px;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    height: 200vh;
+    width: 99%;
+
+    
+}
+.banner{
+    border: green solid 3px;
+    padding-top: 40vh;
+    height: 50vh;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 800;
+}
+.footer{
+    display: flex;
+    justify-content: center;
+}
