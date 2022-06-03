@@ -67,7 +67,7 @@
                 
                 <div style="width: 100%; height: 10%; display:flex; justify-content: flex-end; margin-bottom: 4px;"> 
                 <div style="border: black solid 3px; width: 30%; height: 100%; background-color: #212124;">
-                    Total de usuarios cadastrados:<br><span id="spanUsuarios">10</span>
+                    Total de usuarios cadastrados:<br><span id="spanUsuarios" style="font-size: 30px;">10</span>
                 </div>
                 </div>
                 <div class="cardTitulo">
@@ -98,8 +98,10 @@
 </html>
 <script>
     var dados = []
-    onload = function metricas() {
-
+    window.onload = function metricas() {
+        validarSessao()
+        b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+        
 
         fetch(`/usuarios/metricas`).then(function (resposta) {
             if (resposta.ok) {

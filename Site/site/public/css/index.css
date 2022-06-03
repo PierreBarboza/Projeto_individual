@@ -1,26 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Blaka+Hollow&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Blaka+Hollow&family=Roboto:wght@100&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Blaka+Hollow&family=Roboto:ital,wght@0,100;0,700;1,500&display=swap');
 body{
-background-color: #1c1622;
-background-image: url("../assets/img/fundoBody.jpeg");
-background-repeat: no-repeat;
-background-size: cover;
-margin: 0;
+    background-color: #1c1622;
+    background-size: cover;
+    margin: 0;
+
+}
+body::-webkit-scrollbar{
+    display: none;
 }
 .texto{
     color: black;
     font-weight: 800;
-
 }
 .titulo {
     color: #cb9b60;
     font-size: 45px;
     width: fit-content;
     font-weight: 500;
-    font-family:'Blaka Hollow' ,Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    
-    
+    font-family:'Blaka Hollow' ,Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;    
 }
 .navbar {
     color: #cb9b60;
@@ -41,50 +41,101 @@ margin: 0;
     width: 80%;
     margin: auto;
     display: flex;
-    display: flex;
     justify-content: space-between;
 }
 .containerFooter {
     width: 80%;
     margin: auto;
     display: flex;
-    color: black;
-    
-    
+    color: black;    
 }
 .header {
     background-color: #121212   ;
     background-size: cover;
-    border-bottom: 3px solid black;
-    
-    
+    border-bottom: 3px solid black;    
 }
 a{
- text-decoration: none;  
- color: unset; 
- /* font-weight: 800 */
+    text-decoration: none;  
+    color: unset; 
 }
 .cardHome{
     width: 80vh;
 }
 .containerHome{
-    border: red solid 3px;
     display: flex;
-    flex-direction: row-reverse;
-    justify-content: center;
-    height: 200vh;
-    width: 99%;
-
-    
+    flex-direction: column;
+    height: 170vh;
+    width: 99%;    
 }
 .banner{
-    border: green solid 3px;
-    padding-top: 40vh;
-    height: 50vh;
+    box-sizing: border-box;
+    height: 35vh;
+    width: 100%;
     font-family: 'Roboto', sans-serif;
     font-weight: 800;
+    display: flex;
+    justify-content: space-between;
+}
+.banner .card{
+    box-sizing: border-box;
+    height: 100%;
+    width: 60vh;
+    font-size: 30px;
+    color: #cb9b60;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    font-family: 'MedievalSharp', cursive;
 }
 .footer{
+    background-color: #121212;
+    color: #cb9b60;
     display: flex;
     justify-content: center;
+}
+.footer h4{
+    color: #cb9b60; 
+}
+.footer h6{
+    color: #cb9b60; 
+}
+.btn{
+    margin-top: 5%;
+    width: 30vh;
+    height: 5vh;
+    align-self: center;
+    color: #cb9b60;
+    background-color: black;
+    border-radius: 15%;
+    font-size: 20px;
+    font-family: 'MedievalSharp', cursive;
+    font-weight: 1000;
+    cursor: pointer;
+}
+.banner2{
+    
+    height: 50vh;
+    margin-top: 50px;
+}
+.banner2 .card{
+    box-sizing: border-box;
+    height: 100%;
+    width: 80vh;
+    font-size: 30px;
+    color: #cb9b60;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    font-family: 'MedievalSharp', cursive;
+}
+.card2{
+    box-sizing: border-box;
+    height: 100%;
+    width: 20vh;
+    font-size: 30px;
+    color: #cb9b60;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    font-family: 'MedievalSharp', cursive; 
 }
