@@ -82,6 +82,14 @@
                         <option value="queria Aprender">Queria Aprender</option>
                     </select><br>
 
+                    <span class="tipo_campo">Você está ciente e aceita que outros usuários 
+                    podem ver seu e-mail e entrar em contato com você?</span><br>
+                    <select class="inputCadastro" id="slt_termos">
+                        <option value="0">Aceita?</option>
+                        <option value="1">Sim, estou ciente e aceito</option>
+                        <option value="2">Não aceito</option>
+                    </select><br>
+
                     <button class="btn" onclick="cadastrar()">Cadastrar</button><br>
 
                 </div>
@@ -100,7 +108,7 @@
         <div class="card_erro" id="cardErro">
             <div id="mensagem_erro"></div>
             
-            <img src="./assets/icons/giferro1.gif.crdownload" id="errogif" >
+            <img src="./assets/img/gifhome3.gif" id="errogif" >
             
         </div>
         
@@ -122,18 +130,26 @@
         var senhaVar = senha_input.value;
         var sistemaFavVar = slt_sistemaFav.value;
         var freqVar = slt_freq.value;
+        var termos = slt_termos.value;
 
         if (
             nomeVar == "" || emailVar == "" || senhaVar == "" ||
             sistemaFavVar == 0 || freqVar == 0
         ) {
             cardErro.style.display = "flex"
-            mensagem_erro.innerHTML = "Todos os campos precisam ser preenchidos";
+            mensagem_erro.innerHTML = "You shall not pass!!!Todos os campos precisam ser preenchidos";
             errogif.style.display = "block"
             finalizarAguardar();
             return false;
-        }
-        else {
+        }else if (
+            termos != "1"
+        ){
+            cardErro.style.display = "flex"
+            mensagem_erro.innerHTML = "Você precisa concordar com os termos da cominudade para se juntar a nós!";
+            errogif.style.display = "block"
+            finalizarAguardar();
+            return false;
+        }else {
             setInterval(sumirMensagem, 5000)
         }
 

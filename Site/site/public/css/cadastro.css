@@ -139,4 +139,7 @@ body{
 .imgErro{
     width: 50%;
 }
+.borderIMG{
+    border: black solid 3px;
+}
     

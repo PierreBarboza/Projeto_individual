@@ -122,12 +122,13 @@ body{
     width: 60%;
     height: 65%;
     display: none;
-    justify-content: space-between;
+    /* justify-content: space-between; */
+    flex-direction: row;
     background-color: rgba(0,0,0,.8);
 }
 #errogif{
-    width: 40%;
-    display: none;
+    width: 20%;
+    /* display: none; */
 }
 #div_aguardar{
     display: none;
