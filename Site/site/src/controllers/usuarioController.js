@@ -101,6 +101,43 @@ function cadastrar(req, res) {
             );
     }
 }
+function salvarPersona(req, res) {
+    // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
+    var nomePersonagem = req.body.nomePersonagemServer;
+    var historiaPersonagem = req.body.historiaPersonagemServer;
+    var idpersonagemEscolhido = req.body.idpersonagemEscolhidoServer;
+    var idUsuariosLog = req.body.idUsuariosLogServer;
+    
+
+    // Faça as validações dos valores
+    if (nomePersonagem == undefined) {
+        res.status(400).send("Seu nomePersonagem está undefined!");
+    } else if (historiaPersonagem == undefined) {
+        res.status(400).send("Seu historiaPersonagem está undefined!");
+    } else if (idpersonagemEscolhido == undefined) {
+        res.status(400).send("Sua idpersonagemEscolhido está undefined!");
+    } else if (idUsuariosLog == undefined) {
+        res.status(400).send("Sua idUsuariosLog está undefined!");
+    }else {
+        
+        // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
+        usuarioModel.salvarPersona(nomePersonagem, historiaPersonagem, idpersonagemEscolhido, idUsuariosLog)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro ao realizar o cadastro! Erro: ",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
+}
 
 function cadastrarSistema(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
@@ -153,6 +190,24 @@ function listarUsuario(req, res) {
             }
         );
 }
+function persona(req, res) {
+    var personagemVar = req.params.personagem;
+    var classeVar = req.params.classe;
+    usuarioModel.persona(personagemVar, classeVar)
+        .then(function (resultado) {
+            if (resultado.length > 0) {
+                res.status(200).json(resultado);
+            } else {
+                res.status(204).send("Nenhum resultado encontrado!")
+            }
+        }).catch(
+            function (erro) {
+                console.log(erro);
+                console.log("Houve um erro ao realizar a consulta! Erro: ", erro.sqlMessage);
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
 function metricas(req, res) {
     usuarioModel.metricas()
         .then(function (resultado) {
@@ -173,9 +228,11 @@ function metricas(req, res) {
 module.exports = {
     entrar,
     cadastrar,
+    salvarPersona,
     cadastrarSistema,
     listar,
     listarUsuario,
     metricas,
+    persona,
     testar
 }

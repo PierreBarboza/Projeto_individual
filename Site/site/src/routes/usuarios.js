@@ -13,11 +13,17 @@ router.get("/listar", function (req, res) {
 router.post("/cadastrar", function (req, res) {
     usuarioController.cadastrar(req, res);
 });
+router.post("/salvarPersona", function (req, res) {
+    usuarioController.salvarPersona(req, res);
+});
 router.post("/cadastrarSistema", function (req, res) {
     usuarioController.cadastrarSistema(req, res);
 });
 router.get("/listarUsuario", function (req, res) {
     usuarioController.listarUsuario(req, res);
+});
+router.get("/persona/:personagem/:classe/", function (req, res) {
+    usuarioController.persona(req, res);
 });
 router.get("/metricas", function (req, res) {
     usuarioController.metricas(req, res);

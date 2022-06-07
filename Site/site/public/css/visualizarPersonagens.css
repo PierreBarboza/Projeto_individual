@@ -74,10 +74,10 @@ body {
     border-radius: 10px;
     text-align: center;
     width: 30%;
-    padding: 6px;
     transition: 150ms;
     font-weight: 500;
-    text-decoration: none;    
+    text-decoration: none; 
+    /* height: 4%;     */
 }
 .dash {
   width: 75%;
@@ -97,94 +97,4 @@ body {
     width: 100%;
     height: 60%;
     display: flex;
-}
-.cardsInterno{
-  background-image: url('../assets/img/fundoMadeira4.jpg');
-  background-size: cover;
-  width: 30%;
-  height: 100%;
-}
-.cardsInterno2{
-  padding-top: 20px;
-    background-image: url('../assets/img/fundoMadeira4.jpg');
-    background-size: cover;
-    width: 30%;
-    height: 100%;
-    box-sizing: border-box;
-    font-size: 20px;
-    color: white;
-    /* text-align: center; */
-    display: flex;
-    flex-direction: column;
-    font-family: 'MedievalSharp', cursive;
-    /* align-items: center; */
-    /* justify-content: center; */
-
-
-
-}
-.testoUser{
-  padding-top: 20px;
-  background-image: url('../assets/img/fundoMadeira4.jpg');
-  background-size: cover;
-  width: 40%;
-  height: 100%;
-  font-size: 20px;
-  color: white;
-  font-family: 'MedievalSharp', cursive;
-  /* display: flex; */
-  /* align-items: center; */
-}
-.stl{
-  margin: 3px;
-    height: 25px;
-    border: black solid 2px;
-    border-radius: 15px 0 15px 0;
-    width: 60%;
-    font-size: 15px;
-    outline: none;
-    transition: 160ms;
-}
-.btn{
-  color: black;
-  background-color: #f7f7f7;
-  cursor: pointer;
-  border-radius: 10px;
-  text-align: center;
-  width: 30%;
-  padding: 6px;
-  transition: 150ms;
-  font-weight: 500;
-  text-decoration: none;
-  align-self: center;
-  font-family: 'MedievalSharp', cursive;
-}
-.imgback{
-  background-color: #e02b23;
-  background-image: url('../assets/img/Taverna-2.gif');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: bottom;
-  height: 20vw;
-  width: 100%;
-}
-.ipt{
-  margin: 3px;
-  height: 25px;
-  border: black solid 2px;
-  border-radius: 15px 0 15px 0;
-  width: 60%;
-  font-size: 15px;
-  outline: none;
-  transition: 160ms;
-}
-.ipt2{
-  margin: 3px;
-  height: 300px;
-  width: 85%;
-  border: black solid 2px;
-  border-radius: 15px 0 15px 0;
-  font-size: 15px;
-  outline: none;
-  transition: 160ms;
 }
