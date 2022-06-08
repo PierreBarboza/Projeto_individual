@@ -63,6 +63,17 @@ function listarUsuario() {
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
   }
+  function listarPersonas(fkUsuarioPersona) {
+    console.log(
+      "ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listarPersonas()"
+    );
+    var instrucao = `
+    select nomePersonagem, historiaPersonagem, raca, classe, valorURL from personagem join apendise on fkApendise = idapendise where fkUsuario ='${fkUsuarioPersona}';
+          
+      `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+  }
   function persona(personagemVar, classeVar) {
     console.log(
       "ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function persona()"
@@ -92,6 +103,7 @@ module.exports = {
     salvarPersona,
     cadastrarSistema,
     listarUsuario,
+    listarPersonas,
     metricas,
     listar,
     persona

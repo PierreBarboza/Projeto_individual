@@ -4,7 +4,29 @@ body {
   padding: 0;
   font-family: 'Barlow', "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   background-color: black;
-  overflow: hidden;
+}
+.inputCadastro{
+  margin: 3px;
+  height: 25px;
+  border: black solid 2px;
+  border-radius: 15px 0 15px 0;
+  width: 60%;
+  font-size: 15px;
+  outline: none;
+  transition: 160ms;
+}  
+.btn {
+  color: #431708;
+  background-color: #f7f7f7;
+  cursor: pointer;
+  border-radius: 10px;
+  text-align: center;
+  width: 30%;
+  padding: 6px;
+  transition: 150ms;
+  font-weight: 500;
+  text-decoration: none;
+  font-weight: 600;
 }
 .header-left a {
   text-decoration: none;
@@ -82,63 +104,31 @@ body {
     padding: 6px;
     transition: 150ms;
     font-weight: 500;
-    text-decoration: none;
+    text-decoration: none;    
 }
 .dash {
-  width: 75%;
-  position: relative;
-  top: 0;
-  left: 25%;
-  background-color: #431708;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
+    width: 75%;
+    position: relative;
+    top: 0;
+    left: 25%;
+    background-color: #431708;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
 }
 .cards {
-    display: flex;    
+  display: flex;
+    background-color: #212124;  
     flex-direction: column;
     justify-content: center;
-    height: 100%;
-    width: 100%;
+    height: 450px;
+    width: 60%;
     text-align: center;
     color: white;
     align-items: center;
-    flex-direction: column;
 }
-.cardTitulo{
-    border: black solid 3px;
-    background-color: #212124;
-    width: 60.5%;
-    height:10%;
-    display: flex;
-}
-.cabecario{
-    border-right: black solid 3px;
-    background-color: #212124;
-    box-sizing: border-box;
-    z-index: 7;
-    width: 50%;
-    height:100%;
-}
-.cards_Graf{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 100%;
-    text-align: center;
-    color: white;
-    align-items: center;
-    flex-direction: row;
-}
-.cardGraf{
-    width: 100vh;
-    border: black solid 3px;
-    height: 100%; 
-    width: 30%;
-    background-color: #212124;
-}
-.cards_jog {  
+.cards_jog {
   height: 300px;
   background-color: #191d20;
   width: 70vw;
@@ -153,4 +143,83 @@ body {
 }
 .cards_jog::-webkit-scrollbar{
   display: none;
+} 
+.estiloTabela{
+  color: rgb(179, 179, 179);
+  font-family: monospace;
+  font-size: 17px;
+  line-height: 40px;
+  text-align: center;
+}
+.titiloTabale{
+  color: #694d28;
+}
+.cards {
+  display: flex;
+  background-image: url('../assets/img/fundoMadeira.jpg');
+  background-color: #212124;  
+  flex-direction: column;
+  justify-content: center;
+  height: 450px;
+  width: 60%;
+  text-align: center;
+  color: white;
+  font-size: 25px;
+  font-family: 'MedievalSharp', cursive;
+  font-weight: 600;
+  align-items: center;
+  box-shadow: 14px 17px 10px 13px rgba(0,0,0,0.89);
+}
+.card p {
+  margin: 0;
+  font-size: 50px;
+  font-weight: lighter;
+  text-align: left;
+}
+.cards h1 {
+  font-size: 22px;
+  width: 100%;
+  border-bottom: solid white 1px;
+  text-align: left;
+  font-weight: lighter;
+  margin: 20px;
+}
+.temperatura,
+.umidade {
+  margin: 5px;
+  margin-left: 20px;
+  width: 75%;
+}
+.cor-alerta {
+  width: 13%;
+  height: 30%;
+  border-radius: 50px;
+  margin-top: 6%;
+}
+.btns-dash {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+}
+.graph {
+  width: 80%;
+  margin: auto;
+  padding-top: 10px;
+}
+.tituloGraficos {
+  color: rgb(216, 216, 216);
+  display: flex;
+  justify-content: center;
+}
+.btn-chart {
+  font-family: "Exo 2", sans-serif;
+  border: 0;
+  font-weight: 600;
+  font-size: 18px;
+  padding: 10px 15px;
+  color: #e6005a;
+  background-color: white;
+  margin: 5px;
+  border-radius: 3px;
 }

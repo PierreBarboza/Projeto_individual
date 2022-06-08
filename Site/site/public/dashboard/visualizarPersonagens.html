@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bem Vindo!</title>
+    <title>Seus Personagem</title>
 
     <link rel="stylesheet" href="../css/visualizarPersonagens.css">
     
@@ -67,14 +67,88 @@
 
         </div>
 
-        <div class="dash">
-            <div class="cards">               
+        <div class="dash" id="placar">
+            <!-- <div class="cards">               
+            </div> -->
+            <!-- <table class="tabelaSistema">
+                <thead>
+                  <tr>
+                    <th scope="col" class="titiloTabale">Personagem</th>
+                    <th scope="col" class="titiloTabale">Nome</th>
+                    <th scope="col" class="titiloTabale">Raça</th>
+                    <th scope="col" class="titiloTabale">Classe</th>
+                    <th scope="col" class="titiloTabale">Historia</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="estiloTabela" id="IMGpersona"></td>
+                    <td class="estiloTabela" id="nomePersona"></td>
+                    <td class="estiloTabela" id="racaPersona"></td>
+                    <td class="estiloTabela" id="classePersona"></td>
+                    <td class="estiloTabela" id="historiaPersona"></td>
+                  </tr>
+                </tbody>
+              </table> -->
 
                 
-            </div>
         </div>
     </div>
 
 
 </body>
 </html>
+<script>   
+    window.onload = function listarPersonas() {
+    b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+
+        var fkUsuarioPersonaVar = sessionStorage.ID_USUARIO;
+
+        fetch(`/usuarios/listarPersonas/${fkUsuarioPersonaVar}`).then(function (resposta) {
+            if (resposta.ok) {
+                if (resposta.status == 204) {
+                    var feed = document.getElementById("feed_container");
+                    var mensagem = document.createElement("span");
+                    feed.appendChild(mensagem);
+                    
+                    throw "Nenhum resultado encontrado!!";
+                }
+                  resposta.json().then(function (resposta) {
+                    var feed = document.getElementById("feed_container");
+                      for (let i = 0; i < resposta.length; i++) {
+                        var publicacao = resposta[i]; // i é a posição 0
+                            console.log(publicacao);
+                            
+                            // Aqui eu crio as var (let é a mesma coisa que var) dos dados que quero apresentar no site:
+                            // Temos que colocar publicação.Nome do campo do banco de dados:
+                            let userNomePersonagem = publicacao.nomePersonagem
+                            let userHistoriaPersonagem = publicacao.historiaPersonagem
+                            let userRacaPersonagem = publicacao.raca
+                            let userClassePersonagem = publicacao.classe
+                            let userImg = publicacao.valorURL
+                            
+                         
+                            // Aqui eu aponto para onde meus dados irão para serem apresentados:
+                            // IMGpersona.innerHTML += `<img src="${userImg}" width="100vh"><br>`
+                            // nomePersona.innerHTML += `${userNomePersonagem}  <br> `
+                            // racaPersona.innerHTML += `${userRacaPersonagem}  <br> `
+                            // classePersona.innerHTML += `${userClassePersonagem}  <br> `
+                            // historiaPersona.innerHTML += `${userHistoriaPersonagem}  <br> `
+                            placar.innerHTML += `<div  style="display: flex; flex-direction: row; border: #431708 solid 3px; background-color: white; font-size: 20px; color:#431708; font-weight: 700; ">
+                            <img src="${userImg}" width="200vh"><br> <div> <div>Nome: ${userNomePersonagem}</div><div>Raça: ${userRacaPersonagem}</div><div>Classe: ${userClassePersonagem}</div> Historia: ${userHistoriaPersonagem} </div>
+                            </div>
+                            `
+                          }
+                    
+                })
+            } else {
+                throw ('Houve um erro na API!');
+                
+            }
+        }).catch(function (resposta) {
+            console.error(resposta);
+            
+        });
+    }
+    
+</script>

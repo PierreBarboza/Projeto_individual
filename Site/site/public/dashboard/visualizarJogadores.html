@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jogadores</title>
 
-    <link rel="stylesheet" href="../css/areaLogada.css">
+    <link rel="stylesheet" href="../css/areaLogadaSistemas.css">
     
 
     <script src="../js/funcoes.js"></script>
@@ -99,7 +99,7 @@
 </html>
 <script>   
     window.onload = function listarUsuario() {
-
+        b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
         fetch(`/usuarios/listarUsuario`).then(function (resposta) {
             if (resposta.ok) {
                 if (resposta.status == 204) {

@@ -6,7 +6,6 @@ function testar(req, res) {
     console.log("ENTRAMOS NA usuarioController");
     res.json("ESTAMOS FUNCIONANDO!");
 }
-
 function listar(req, res) {
     usuarioModel.listar()
         .then(function (resultado) {
@@ -23,17 +22,14 @@ function listar(req, res) {
             }
         );
 }
-
 function entrar(req, res) {
     var email = req.body.emailServer;
     var senha = req.body.senhaServer;
-
     if (email == undefined) {
         res.status(400).send("Seu email está undefined!");
     } else if (senha == undefined) {
         res.status(400).send("Sua senha está indefinida!");
-    } else {
-        
+    } else {        
         usuarioModel.entrar(email, senha)
             .then(
                 function (resultado) {
@@ -57,20 +53,13 @@ function entrar(req, res) {
                 }
             );
     }
-
 }
-
-
-
 function cadastrar(req, res) {
-    // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
     var nome = req.body.nomeServer;
     var email = req.body.emailServer;
     var senha = req.body.senhaServer;
     var sistemaFav = req.body.sistemaFavServer;
     var freq = req.body.freqServer;
-
-    // Faça as validações dos valores
     if (nome == undefined) {
         res.status(400).send("Seu nome está undefined!");
     } else if (email == undefined) {
@@ -81,9 +70,7 @@ function cadastrar(req, res) {
         res.status(400).send("Sua sistemaFav está undefined!");
     }else if (freq == undefined) {
         res.status(400).send("Sua racaFav está undefined!");
-    }else {
-        
-        // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
+    }else {        
         usuarioModel.cadastrar(nome, email, senha, sistemaFav, freq)
             .then(
                 function (resultado) {
@@ -102,14 +89,10 @@ function cadastrar(req, res) {
     }
 }
 function salvarPersona(req, res) {
-    // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
     var nomePersonagem = req.body.nomePersonagemServer;
     var historiaPersonagem = req.body.historiaPersonagemServer;
     var idpersonagemEscolhido = req.body.idpersonagemEscolhidoServer;
     var idUsuariosLog = req.body.idUsuariosLogServer;
-    
-
-    // Faça as validações dos valores
     if (nomePersonagem == undefined) {
         res.status(400).send("Seu nomePersonagem está undefined!");
     } else if (historiaPersonagem == undefined) {
@@ -118,9 +101,7 @@ function salvarPersona(req, res) {
         res.status(400).send("Sua idpersonagemEscolhido está undefined!");
     } else if (idUsuariosLog == undefined) {
         res.status(400).send("Sua idUsuariosLog está undefined!");
-    }else {
-        
-        // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
+    }else {       
         usuarioModel.salvarPersona(nomePersonagem, historiaPersonagem, idpersonagemEscolhido, idUsuariosLog)
             .then(
                 function (resultado) {
@@ -138,25 +119,17 @@ function salvarPersona(req, res) {
             );
     }
 }
-
 function cadastrarSistema(req, res) {
-    // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
     var sistemaPrimeira = req.body.sistemaPrimeiraServer;
     var sistemaSegunda = req.body.sistemaSegundaServer;
     var fkUsuario = req.body.fkUsuarioServer;
-    
-    
-
-    // Faça as validações dos valores
     if (sistemaPrimeira == undefined) {
         res.status(400).send("Seu sistemaPrimeira está undefined!");
     } else if (sistemaSegunda == undefined) {
         res.status(400).send("Seu sistemaSegunda está undefined!");
     }  else if (fkUsuario == undefined) {
         res.status(400).send("Seu fkUsuario está undefined!");
-    }else {
-        
-        // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
+    }else {        
         usuarioModel.cadastrarSistema(sistemaPrimeira, sistemaSegunda, fkUsuario)
             .then(
                 function (resultado) {
@@ -176,6 +149,23 @@ function cadastrarSistema(req, res) {
 }
 function listarUsuario(req, res) {
     usuarioModel.listarUsuario()
+        .then(function (resultado) {
+            if (resultado.length > 0) {
+                res.status(200).json(resultado);
+            } else {
+                res.status(204).send("Nenhum resultado encontrado!")
+            }
+        }).catch(
+            function (erro) {
+                console.log(erro);
+                console.log("Houve um erro ao realizar a consulta! Erro: ", erro.sqlMessage);
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+function listarPersonas(req, res) {
+    var fkUsuarioPersona = req.params.fkUsuarioPersonaVar;
+    usuarioModel.listarPersonas(fkUsuarioPersona)
         .then(function (resultado) {
             if (resultado.length > 0) {
                 res.status(200).json(resultado);
@@ -224,7 +214,6 @@ function metricas(req, res) {
             }
         );
 }
-
 module.exports = {
     entrar,
     cadastrar,
@@ -232,6 +221,7 @@ module.exports = {
     cadastrarSistema,
     listar,
     listarUsuario,
+    listarPersonas,
     metricas,
     persona,
     testar

@@ -22,6 +22,9 @@ router.post("/cadastrarSistema", function (req, res) {
 router.get("/listarUsuario", function (req, res) {
     usuarioController.listarUsuario(req, res);
 });
+router.get("/listarPersonas/:fkUsuarioPersonaVar", function (req, res) {
+    usuarioController.listarPersonas(req, res);
+});
 router.get("/persona/:personagem/:classe/", function (req, res) {
     usuarioController.persona(req, res);
 });
