@@ -100,3 +100,22 @@ body::-webkit-scrollbar{
     height: 60%;
     display: flex;
 }
+.divPersonagem{
+  display: flex; 
+  flex-direction: row; 
+  border: #431708 solid 3px; 
+  background-color: white; 
+  font-size: 20px; 
+  color:#431708; 
+  font-weight: 700; 
+}
+.h3Personagem{
+  border: black solid 3px;
+  border-radius:10px ;
+  width: 125px;
+  text-align: center;
+  cursor: pointer;
+  background-color: #431708;
+  color: white;
+}
+

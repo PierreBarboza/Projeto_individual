@@ -68,7 +68,7 @@ function listarUsuario() {
       "ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listarPersonas()"
     );
     var instrucao = `
-    select nomePersonagem, historiaPersonagem, raca, classe, valorURL from personagem join apendise on fkApendise = idapendise where fkUsuario ='${fkUsuarioPersona}';
+    select nomePersonagem, historiaPersonagem, raca, classe, valorURL, idPersonagem from personagem join apendise on fkApendise = idapendise where fkUsuario ='${fkUsuarioPersona}';
           
       `;
     console.log("Executando a instrução SQL: \n" + instrucao);
@@ -96,6 +96,14 @@ function listarUsuario() {
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
   }
+  function deletar(deletPersona) {
+    console.log("ACESSEI O AVISO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function deletar():", deletPersona);
+    var instrucao = `
+        DELETE FROM personagem WHERE idPersonagem = '${deletPersona}';
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
 
 module.exports = {
     entrar,
@@ -106,5 +114,6 @@ module.exports = {
     listarPersonas,
     metricas,
     listar,
+    deletar,
     persona
 };

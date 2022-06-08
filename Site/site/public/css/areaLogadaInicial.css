@@ -89,6 +89,9 @@ body {
   top: 0;
   left: 25%;
   background-color: #431708;
+  background-image: url('../assets/img/fundoarealogada.gif');
+  background-repeat: no-repeat;
+  background-size: cover;
   display: flex;
   align-items: center;
   justify-content: center;

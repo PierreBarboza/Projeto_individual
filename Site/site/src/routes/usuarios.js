@@ -35,7 +35,9 @@ router.get("/metricas", function (req, res) {
 router.post("/autenticar", function (req, res) {
     usuarioController.entrar(req, res);
 });
-
+router.delete("/deletar/:deletPersonaVar", function (req, res) {
+    usuarioController.deletar(req, res);
+});
 
 
 

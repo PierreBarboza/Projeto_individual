@@ -191,3 +191,15 @@ h1 {
   outline: none;
   transition: 160ms;
 }
+#btn2{
+  display: none;
+}
+.disloadin{
+  margin-top: 10px;
+  width: 75px; 
+  height: 75px; 
+  align-self: center ; 
+  background-image: url('../assets/icons/loadindado.gif');
+  background-size: cover;
+  display: none;
+}

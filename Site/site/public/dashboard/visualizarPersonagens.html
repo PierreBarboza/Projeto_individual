@@ -66,41 +66,19 @@
             </div>
 
         </div>
-
         <div class="dash" id="placar">
-            <!-- <div class="cards">               
-            </div> -->
-            <!-- <table class="tabelaSistema">
-                <thead>
-                  <tr>
-                    <th scope="col" class="titiloTabale">Personagem</th>
-                    <th scope="col" class="titiloTabale">Nome</th>
-                    <th scope="col" class="titiloTabale">Raça</th>
-                    <th scope="col" class="titiloTabale">Classe</th>
-                    <th scope="col" class="titiloTabale">Historia</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td class="estiloTabela" id="IMGpersona"></td>
-                    <td class="estiloTabela" id="nomePersona"></td>
-                    <td class="estiloTabela" id="racaPersona"></td>
-                    <td class="estiloTabela" id="classePersona"></td>
-                    <td class="estiloTabela" id="historiaPersona"></td>
-                  </tr>
-                </tbody>
-              </table> -->
-
-                
+                            
         </div>
     </div>
 
 
 </body>
 </html>
-<script>   
+<script> 
+let parametro = ""  
     window.onload = function listarPersonas() {
     b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+    
 
         var fkUsuarioPersonaVar = sessionStorage.ID_USUARIO;
 
@@ -126,17 +104,19 @@
                             let userRacaPersonagem = publicacao.raca
                             let userClassePersonagem = publicacao.classe
                             let userImg = publicacao.valorURL
-                            
+                            let idpersonaDelet = publicacao.idPersonagem
+                            parametro = idpersonaDelet
                          
                             // Aqui eu aponto para onde meus dados irão para serem apresentados:
-                            // IMGpersona.innerHTML += `<img src="${userImg}" width="100vh"><br>`
-                            // nomePersona.innerHTML += `${userNomePersonagem}  <br> `
-                            // racaPersona.innerHTML += `${userRacaPersonagem}  <br> `
-                            // classePersona.innerHTML += `${userClassePersonagem}  <br> `
-                            // historiaPersona.innerHTML += `${userHistoriaPersonagem}  <br> `
-                            placar.innerHTML += `<div  style="display: flex; flex-direction: row; border: #431708 solid 3px; background-color: white; font-size: 20px; color:#431708; font-weight: 700; ">
-                            <img src="${userImg}" width="200vh"><br> <div> <div>Nome: ${userNomePersonagem}</div><div>Raça: ${userRacaPersonagem}</div><div>Classe: ${userClassePersonagem}</div> Historia: ${userHistoriaPersonagem} </div>
+                          
+                            placar.innerHTML += `<div class="divPersonagem">
+                            <img src="${userImg}" width="200vh"><br> <div> <div>Nome: ${userNomePersonagem}</div><div>Raça: ${userRacaPersonagem}</div><div>Classe: ${userClassePersonagem}</div> Historia: ${userHistoriaPersonagem} 
+                            <a onclick="apagarPersona(${idpersonaDelet})">
+                            <h5 class="h3Personagem">Apagar Personagem</h5>
+                            </a>
                             </div>
+                            
+                            
                             `
                           }
                     
@@ -149,6 +129,33 @@
             console.error(resposta);
             
         });
+    }
+    function apagarPersona(parametro){
+        let deletPersonaVar = parametro
+        
+        
+        fetch(`/usuarios/deletar/${deletPersonaVar}`, {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        }).then(function (resposta) {
+
+            if (resposta.ok) {
+                window.alert(sessionStorage.getItem("NOME_USUARIO") + " Seu personagem foi deletado com sucesso");
+                window.location = "/dashboard/visualizarPersonagens.html"
+            } else if (resposta.status == 404) {
+                window.alert("Deu 404!");
+            } else {
+                throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
+    
+
+
+
     }
     
 </script>
